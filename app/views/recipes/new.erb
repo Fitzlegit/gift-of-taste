@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Gift Of Taste</title>
+    <link href='https://fonts.googleapis.com/css?family=Dynalight' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <style type="text/css">
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container-md" style="height: 100vh; background-image: url(/images/flatlay-photography-of-strawberries-and-sliced-bread-1660030.jpg);">
+          <div class="container-sm">
+            <form class="recipe-form" action="/recipes/:id" method="post">
+                <label class="recipe-title"><center>Create A New Recipe</center></label>
+                <br><br><br>
+                <label for="">Name: </label>
+                <input type="text" name="recipe[name]" value="" style="padding-right: 36px;"/>
+                <br><br>
+                <label for="">Prep Time: </label>
+                <input type="number" name="recipe[prep_time]" style="width: 4em;">
+                <label style="margin-right: 50px;">minutes</label>
+                <label for="">Cook Time: </label>
+                <input type="number" name="recipe[cook_time]" style="width: 4em;">
+                <label>minutes</label>
+                <br><br>
+                <label for="">Category: </label>
+                <select name="recipe[category]">
+                  <option value="snack">Snack</option>
+                  <option value="breakfast">Breakfast</option>
+                  <option value="lunch">Lunch</option>
+                  <option value="dinner">Dinner</option>
+                  <option value="desert">Desert</option>
+                  <option value="other">Other</option>
+                </select>
+                <label for="">Diet: </label>
+                <select class="" name="recipe[diet]">
+                  <option value="balanced">Balanced</option>
+                  <option value="vegan">Vegan</option>
+                  <option value="keto">Keto</option>
+                  <option value="vegatarian">Vegatarian</option>
+                  <option value="pescatarian">Pescatarian</option>
+                </select>
+                <br><br>
+                <label for="" style="float: right">Story: </label>
+                <br><br>
+                <textarea name="recipe[story]" rows="8" cols="83">Tell us all about this food story!</textarea>
+                <br><br>
+                <label for="" style="float: right;">Ingredients: </label>
+                <br><br>
+                <textarea name="recipe[ingredients]" rows="8" cols="83">We're heading to the store for ingredients now!</textarea>
+                <br><br>
+                <label for="" style="float: right;">Directions: </label>
+                <br><br>
+                <textarea name="recipe[directions]" rows="8" cols="83">Let us know your secret!</textarea>
+                <br><br>
+                <input type="hidden" name="recipe[user_id]" value="<%= current_user.id %>">
+                <input type="submit" name="" value="Create New Recipe" />
+            </form>
+          </div>
+      </div>
+    </section>
+  </body>
+</html>

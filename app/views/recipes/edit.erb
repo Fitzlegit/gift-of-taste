@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Gift Of Taste</title>
+    <link href='https://fonts.googleapis.com/css?family=Dynalight' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <style type="text/css">
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container-md" style="height: 100vh; background-image: url(/images/flatlay-photography-of-strawberries-and-sliced-bread-1660030.jpg);">
+          <div class="container-sm">
+            <form class="recipe-form" action="/recipes/<%= @recipe.id %>" method="post">
+              <input type="hidden" name="_method" value="patch">
+                <label class="recipe-title"><center>Update Recipe</center></label>
+                <br><br><br>
+                <label for="">Name: </label>
+                <input type="text" name="recipe[name]" value="<%= @recipe.name %>" style="padding-right: 36px;"/>
+                <br><br>
+                <label for="">Prep Time: </label>
+                <input type="number" name="recipe[prep_time]" style="width: 4em;" value="<%= @recipe.prep_time %>">
+                <label style="margin-right: 50px;">minutes</label>
+                <label for="">Cook Time: </label>
+                <input type="number" name="recipe[cook_time]" style="width: 4em;" value="<%= @recipe.cook_time %>">
+                <label>minutes</label>
+                <br><br>
+                <label for="">Category: </label>
+                <select name="recipe[category]" value="<%= @recipe.category %>">
+                  <option value="snack">Snack</option>
+                  <option value="breakfast">Breakfast</option>
+                  <option value="lunch">Lunch</option>
+                  <option value="dinner">Dinner</option>
+                  <option value="desert">Desert</option>
+                  <option value="other">Other</option>
+                </select>
+                <label for="">Diet: </label>
+                <select class="" name="recipe[diet]" value="<%= @recipe.diet %>">
+                  <option value="balanced">Balanced</option>
+                  <option value="vegan">Vegan</option>
+                  <option value="keto">Keto</option>
+                  <option value="vegatarian">Vegatarian</option>
+                  <option value="pescatarian">Pescatarian</option>
+                </select>
+                <br><br>
+                <label for="" style="float: right">Story: </label>
+                <br><br>
+                <textarea name="recipe[story]" rows="8" cols="83"><%= @recipe.story %></textarea>
+                <br><br>
+                <label for="" style="float: right;">Ingredients: </label>
+                <br><br>
+                <textarea name="recipe[ingredients]" rows="8" cols="83"><%= @recipe.ingredients %></textarea>
+                <br><br>
+                <label for="" style="float: right;">Directions: </label>
+                <br><br>
+                <textarea name="recipe[directions]" rows="8" cols="83"><%= @recipe.directions %></textarea>
+                <br><br>
+                <input type="submit" name="" value="Update Recipe" />
+            </form>
+          </div>
+      </div>
+    </section>
+  </body>
+</html>

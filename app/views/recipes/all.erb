@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <style style="text/css">
+      a {
+        text-decoration: none;
+      }
+
+      .list-text {
+        width: 100%;
+        padding-top: 20px;
+        padding-left: 40%;
+        text-align: left;
+      }
+    </style>
+    <title></title>
+  </head>
+  <body>
+    <section>
+      <div class="container-md" style="padding-top: 200px; height: 100vh; background-image: url(/images/basil-chopping-board-fresh-green-616484.jpg);">
+        <% @recipes.each do |recipe| %>
+          <div class="list-text">
+              <a href="/recipes/<%= recipe.id %>"><%= recipe.id %>. &nbsp <%= recipe.name %></a>
+          </div>
+        <% end %>
+      </div>
+    </section>
+  </body>
+</html>

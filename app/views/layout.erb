@@ -6,21 +6,23 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-
-    <title>GiftOfTaste</title>
-
+    <title>Gift Of Taste</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
+    <% if logged_in? %>
+      <div class="topnav">
+        <a href="/profile">Home</a>
+        <a href="/recipes/new">Create A Recipe</a>
+        <a href="/recipes">View Recipes</a>
+        <a href="/logout" style="float:right">Log out</a>
+      </div>
+    <% end %>
+
     <div class="wrapper">
 
         <%= yield %>
 
-      <footer class="branding">
-        <small>&copy; 2020 <strong>GiftOfTaste</strong></small>
-      </footer>
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>

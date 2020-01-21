@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Gift Of Taste</title>
+    <link href='https://fonts.googleapis.com/css?family=Dynalight' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <style type="text/css">
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container-fluid" style="background-image: url(/images/burger-and-vegetables-placed-on-brown-wood-surface-1565982.jpg); height: 100vh;">
+          <div class="container-sm">
+            <div class="recipe-show" style="padding-right: 800px;">
+              <% total_time = (@recipe.prep_time).to_i + (@recipe.cook_time).to_i %>
+              <h1>RECIPE - <a style="color: orange"><%= (@recipe.name).upcase %></a></h1>
+              <br>
+              <h3>Prep Time: <a style="color: orange"><%= @recipe.prep_time %> minutes</a> &nbsp; &nbsp; Cook Time: <a style="color: orange"><%= @recipe.cook_time %> minutes </a> &nbsp; &nbsp; Total Time: <a style="color: orange"><%= total_time %> minutes</a></h3>
+              <h3>Category: &nbsp; <a style="color: orange"><%= (@recipe.category).upcase %></a> &nbsp; &nbsp; &nbsp; &nbsp;  Diet: &nbsp; <a style="color: orange"><%= (@recipe.diet).upcase %></a></h3>
+              <br>
+              Story:
+              <br><br>
+              <p><%= @recipe.story %></p>
+              <br>
+              Ingredients:
+              <br><br>
+              <p>
+                <%= @recipe.ingredients %>
+              </p>
+              <br>
+              Directions:
+              <br><br>
+              <p><%= @recipe.directions %></p>
+              <% if current_user.id.to_s == @recipe.user_id.to_s %>
+              <div style="display: flex;">
+                <form class="" action="/recipes/<%=@recipe.id%>" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" value="delete" />
+                </form>
+                <form class="" action="/recipes/<%=@recipe.id%>/edit" method="get">
+                  <input type="submit" value="edit">
+                </form>
+                <% end %>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+  </body>
+</html>

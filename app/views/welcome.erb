@@ -1,23 +1,37 @@
-<div class="container">
-  <header><img src="images/corneal-small.png" class="img-responsive main-image"></header>
-  <div class="col-md-8 col-md-offset-2">
-    <h2>Sinatra Template Default Page</h2>
-
-    <div class="content">
-      <p>Welcome to the Sinatra Template! If you're seeing this page, then everything is working
-      as expected. To get started, delete this file (<code>app/views/welcome.erb)</code> and begin adding
-      your own actions to <code>application_controller.rb</code>. For more information, see the <a href="https://github.com/thebrianemory/corneal">README</a>.</p>
-    </div>
-
-    <div class="sidebar">
-      <h3>Environment</h3>
-      <ul>
-        <li><b>Ruby:</b> <%= RUBY_VERSION %></li>
-        <li><b>Environment:</b> <%= ENV["RACK_ENV"] %></li>
-        <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
-        <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
-      </ul>
-    </div>
-
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Gift Of Taste</title>
+    <link href='https://fonts.googleapis.com/css?family=Dynalight' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <style type="text/css">
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container-md" style="height: 100vh; background-image: url(/images/image1.jpg);">
+        <center>
+          <div class="container-sm">
+            <form class="login-form" action="/profile" method="post">
+                <label class="logo-title">Gift Of Taste</label>
+                <br><br><br><br>
+                <label for="">Username: </label>
+                <input type="text" name="username" value="" />
+                <br><br>
+                <label for="">Password: </label>
+                <input type="password" name="password" value="" style="margin-left: 3px;" />
+                <br><br>
+                <label for="">Email: </label>
+                <input type="email" name="email" value="" style="margin-left: 29px;" />
+                <br><br>
+                <input type="submit" name="" value="sign in" />
+                <input type="submit" name="" value="sign up" formaction="/register">
+            </form>
+          </div>
+        </center>
+      </div>
+    </section>
+  </body>
+</html>

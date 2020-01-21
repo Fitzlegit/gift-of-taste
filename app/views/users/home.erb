@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Dynalight' rel='stylesheet'>
+
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial;
+    padding: 10px;
+    background: url(/images/anise-aroma-art-bazaar-277253.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  /* Header/Blog Title */
+  .header {
+    padding: 30px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.7);
+
+  }
+
+  .header h1 {
+    font-size: 50px;
+  }
+
+  /* Style the top navigation bar */
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  /* Style the topnav links */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  /* Change color on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {
+    float: left;
+    width: 75%;
+  }
+
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 25%;
+    background-color: #;
+    padding-left: 20px;
+  }
+
+  /* Fake image */
+  .fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+  }
+
+  /* Add a card effect for articles */
+  .card {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.7);
+    margin-top: 20px;
+  }
+
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+  @media screen and (max-width: 400px) {
+    .topnav a {
+      float: none;
+      width: 100%;
+    }
+  }
+
+  h4 {
+    font-size: 10px;
+  }
+
+  .logo-title {
+    font-size: 100px;
+    color: orange;
+    text-shadow: 1px 1px 1px #000;
+    font-family: 'Dynalight'
+  }
+  </style>
+  </head>
+  <body >
+
+  <div class="header">
+    <h1 class="logo-title">The Gift Of Taste</h1>
+    <p>“There is no love sincerer than the love of food.”</p>
+    <h4> ― George Bernard Shaw, Man and Superman</h4>
+  </div>
+
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h2>Welcome back, <%= current_user.username %>!</h2>
+        <h5>Ode to a Large Tuna in the Market, <%= DateTime.now.in_time_zone.to_date %></h5>
+        <div class="fakeimg" style="background: url(/images/close-up-photo-of-sushi-served-on-table-248444.jpg) no-repeat center center fixed; height: 200px;"></div>
+        <p><b>Pablo Naruda</b></p>
+        <p>&nbsp; &nbsp; Here, among the market vegetables, this torpe from the ocean depths,
+          a missile that swam, now lying in front of me dead.
+          <br><br>
+          &nbsp; &nbsp; Surrounded by the earth's green froth —these lettuces,
+          bunches of carrots—only you lived through the sea's truth, survived
+          the unknown, the unfathomable darkness, the depths of the sea,
+          the great abyss, le grand abîme, only you: varnished black-pitched witness
+          to that deepest night.</p>
+      </div>
+    </div>
+    <div class="rightcolumn">
+      <div class="card">
+        <center><h3>YOUR RECIPES</h3></center>
+        <% current_user.recipes.take(3).each do |user_recipe| %>
+          <ul>
+            <center><a href="/recipes/<%= user_recipe.id %>"><%= user_recipe.name %></a></center>
+          </ul>
+        <% end %>
+      </div>
+      <div class="card">
+        <center><h3>NEWEST RECIPES</h3></center>
+        <% @recipes.take(5).each do |recipe| %>
+        <ul>
+          <center><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></center>
+        </ul>
+        <% end %>
+        <center><a href="/recipes">Show More</a></center>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p style="font-size: 12px;">&copy Gift of Taste - 2020 - All Rights Reserved</p>
+  </div>
+
+  </body>
+</html>
