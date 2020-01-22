@@ -11,7 +11,7 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
-gem 'bootstrap'
+gem 'bootstrap', ">= 4.3.1"
 gem 'sysrandom'
 
 group :test do
