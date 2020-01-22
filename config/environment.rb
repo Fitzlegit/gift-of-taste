@@ -1,5 +1,5 @@
 ENV['SINATRA_ENV'] ||= "development"
-ENV['SESSION_SECRET'] = ""
+#ENV['SESSION_SECRET'] = ""
 
 
 require 'bundler/setup'
